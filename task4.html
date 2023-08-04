@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<script>
+  function validateForm() {
+     let fname = document.forms["Myform"]["fname"].value;
+     if (fname == ""||fname == null) {
+     alert("Name must be filled out");
+     return false;
+  }
+}
+</script>
+<style>
+  body{
+         background-color:burlywood;
+         color:black
+	  }
+   input{
+          width: 300px;
+          border: 1px solid;
+          border-radius: 3px;
+          outline: 0;
+          padding: 10px;
+	    }
+
+    input[type=button],input[type=submit]{
+           background-color: black;
+           color: white;
+           width: 50%;
+           padding: 14px 20px;
+           margin: 8px 0;
+           border: none;
+           border-radius: 4px;
+	       }
+	 .col-25 {
+               float: left;
+               width: 25%;
+	         }
+	 .col-75 {
+               float: left;
+               width: 75%;
+	         }
+</style>
+</head>
+  <body>
+  	<h2>Personal Information</h2>
+
+  	<form action="#" name="Myform" method="post" autocomplete="off" onsubmit="return validateForm()">
+  	<fieldset>
+  	 <legend>Info:</legend><br>
+  	 <div class="col-25">
+  	  <label for="fname">First Name:</label>
+   	 </div>
+   	 <div class="col-75">
+  	  <input type="text" id="fname" name="fname" size="60" placeholder="Your first name.." autofocus><br><br>
+  	 </div>
+  	 <div class="col-25">
+  	  <label for="lname">Last Name:</label>
+  	 </div>
+  	 <div class="col-75">
+  	  <input type="text" id="lname" name="lname" size="60" placeholder="Your last name.."><br><br>
+  	 </div>
+  	 <div class="col-25">
+  	  <label for="email">Email:</label>
+  	 </div>
+  	 <div class="col-75">
+  	  <input type="email" id="email" name="email" size="60" placeholder="Your email address.."><br><br>
+  	 </div>
+  	 <div class="col-25">
+  	  <label for="contact">Contact details:</label>
+  	</div>
+  	<div class="col-75">
+  	  <input type="tel" id="contact" name="contact" pattern="[0-9]{5}-[0-9]{5}" size="60" placeholder="Your contact details.."><br><br>
+  	</div>
+  	<div class="col-25">
+  	  <label for="city">City:</label>
+  	</div>
+  	<div class="col-75">
+  	  <input type="text" id="city" name="city" size="60" placeholder="Your city name.."><br><br>
+  	</div>
+  	<div class="col-25">
+  	  <label for="cot">State:</label>
+  	 </div>
+  	 <div class="col-75">
+  	  <input type="text" id="cot" name="cot" size="60" placeholder="Your state name"><br><br>
+  	 </div>
+  	 <div class="col-25">
+  	  <label for="pin">Pin Code:</label>
+  	 </div>
+  	 <div class="col-75">
+  	  <input type="number" id="pin" name="pin" size="60" placeholder="Your area's pincode"><br><br>
+  	 </div>
+  	 <div class="col-25">
+  	  <label for="username">Username:</label>
+  	 </div>
+  	 <div class="col-75">
+  	  <input type="text" id="username" name="username" size="60" placeholder="Username"><br><br>
+  	 </div>
+  	 <div class="col-25">
+  	  <label for="pwd">Password:</label>
+  	</div>
+  	 <div class="col-75">
+  	  <input type="text" id="pwd" name="pwd" size="60" placeholder="Password"><br><br>
+     </div>
+     <div class="col-25">
+  	  <input type="submit" value= "Submit">
+  	</div>
+  </fieldset>
+  	</form>
+  </body>
+  </html>
