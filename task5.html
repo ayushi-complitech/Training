@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To-Do List App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+	body{
+	  height: 100vh;
+    background-color: slateblue;
+	}
+
+  *{
+  	 margin: 0;
+  	 padding: 0;
+  	 font-family: 'poppins', sans-serif;
+     box-sizing: border-box;
+  }
+  .container{
+    width: 700px;
+    margin: 80px 300px;
+    background-color: crimson;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;     
+  }
+  .newtask{
+    position: relative;
+    padding: 30px 20px;
+}
+.newtask input{
+    width: 75%;
+    height: 45px;
+    padding: 12px;
+    color: #111111;
+    font-weight: 500;
+    position: relative;
+    border-radius: 5px;
+    font-family: 'Poppins',sans-serif;
+    font-size: 15px;
+    border: 2px solid #d1d3d4;
+}
+.newtask button{
+    position: relative;
+    float: right;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #0d75ec;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    width: 20%;
+    height: 45px;
+    border-radius: 15px;
+    font-family: 'Poppins',sans-serif;
+}
+ul li{
+     list-style: none;
+     font-size: 16px;
+     text-align: left;
+     background-color: white;
+     padding: 12px 8px 12px 50px;
+     user-select: none;
+     cursor: pointer;
+     position: relative;
+}
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(/home/ror/Trainee/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+    color: white;
+}
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+ul li.checked::after{
+  background-image: url(/home/ror/Trainee/checked.png);
+}
+</style>
+</head>
+<body>
+   <div class="container">
+   <div class="newtask">
+     <h2 style="color: white;">My To Do List</h2>
+     <div class="search">
+     <input type="text" id="input-box" placeholder="Add Task">
+     <button onclick="addTask()">Add</button>
+    </div>
+   </div>
+     <ul id="list">
+
+     <li class="checked">Task1</li>
+     <li>Task2</li>
+     <li>Task3</li>
+     <li>Task4</li>
+
+</div>
+<!--
+<script>
+  const inputBox = document.getElementById("input-box");
+  const listContainer = document.getElementById("list");
+
+  function addTask(){
+     if(inputBox.value === ''){
+      alert("you must write something!");
+    }
+    else{
+      let li = document.createElement("li");
+      li.innerHTML = inputBox.value;
+      listContainer.appendChild(li);
+      let span= document.createElement("span")
+      span.innerHTML = "\u00d7"
+      li.appendChild(span);
+    }
+    inputBox.value = ""
+  }
+</script>
+-->
+
+</body>
+</html>
