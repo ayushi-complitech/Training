@@ -123,8 +123,7 @@ const todosContainer = document.querySelector('.todos-container');
 // create div add class todo-item-container 
     const todoItemContainer = document.createElement('div');
     todoItemContainer.classList.add('todo-item-container');
-    todosContainer.appendChild(todoItemContainer);
-    
+    todosContainer.appendChild(todoItemContainer);    
 
 //add local storage
     //localStorage.setItem('data',todoText.innerText);
@@ -137,7 +136,6 @@ const todosContainer = document.querySelector('.todos-container');
     todoText.id = 'todo-text';
     todoText.innerText = name;
     todoItemContainer.appendChild(todoText);
-
 
     // create button add id= edit=button
     const editButton = document.createElement('button');
@@ -153,6 +151,22 @@ const todosContainer = document.querySelector('.todos-container');
         const parent = editButton.parentElement;
         parent.parentElement.removeChild(parent);
     });
+
+     // create buton and add id = deleteButton
+    const deleteButton = document.createElement('button');
+    deleteButton.id = 'delete-button';
+    // create img add it to delete-button
+    const deleteImage = document.createElement('img');
+    deleteImage.src = 'delete.svg';
+    deleteButton.appendChild(deleteImage);
+    todoItemContainer.appendChild(deleteButton);
+
+    // add click event for deleteButton
+    deleteButton.addEventListener('click', () => {
+        const parent = deleteButton.parentElement;
+        parent.parentElement.removeChild(parent);
+    });
+
 
 addButton.addEventListener('click', () => {
     if (textInputField.value.trim().length == '')
