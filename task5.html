@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
 <style>
@@ -121,6 +120,40 @@ const textInputField = document.querySelector('#text-input-field');
 const addButton = document.querySelector('#add-button');
 const todosContainer = document.querySelector('.todos-container');
 
+// create div add class todo-item-container 
+    const todoItemContainer = document.createElement('div');
+    todoItemContainer.classList.add('todo-item-container');
+    todosContainer.appendChild(todoItemContainer);
+    
+
+//add local storage
+    //localStorage.setItem('data',todoText.innerText);
+    //let data = todoText.innerText;
+    let name = localStorage.getItem('data');
+    console.log(name);
+
+  // create p element add id = todo-text
+    const todoText = document.createElement('p');
+    todoText.id = 'todo-text';
+    todoText.innerText = name;
+    todoItemContainer.appendChild(todoText);
+
+
+    // create button add id= edit=button
+    const editButton = document.createElement('button');
+    editButton.id = 'edit-button';
+    // create img add to edit button
+    const editImage = document.createElement('img');
+    editImage.src = 'edit.svg';
+    editButton.appendChild(editImage);
+    todoItemContainer.appendChild(editButton);
+    //  add click event to edit-button here
+    editButton.addEventListener('click', () => {
+        textInputField.value = todoText.innerText;
+        const parent = editButton.parentElement;
+        parent.parentElement.removeChild(parent);
+    });
+
 addButton.addEventListener('click', () => {
     if (textInputField.value.trim().length == '')
         return;
@@ -142,7 +175,8 @@ addButton.addEventListener('click', () => {
     })
 
     //add local storage
-    localStorage.setItem('data',todosContainer);
+    localStorage.setItem('data',todoText.innerText);
+    //let data = todoText.innerText;
     let name = localStorage.getItem('data');
     console.log(name);
 
