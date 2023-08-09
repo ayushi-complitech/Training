@@ -114,11 +114,35 @@ h2 {
     </main>
 
 
-    <!-- JAVASCRIPT -->
-    <script>
+<!-- JAVASCRIPT -->
+<script>
+
 const textInputField = document.querySelector('#text-input-field');
 const addButton = document.querySelector('#add-button');
 const todosContainer = document.querySelector('.todos-container');
+
+//local storage
+/*function addTask() {
+  // return if value is empty
+  if (textInputField.value === "") {
+    alert("Please add some task!");
+    return false;
+  }
+  // check if value already exist
+  let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+  // value already exist
+  tasks.forEach(todo => {
+    if (todo.task === textInputField.value) {
+      alert("Value already exist!");
+      textInputField.value = "";
+      return;
+    }
+  });
+
+  // add task to local storage
+  localStorage.setItem("tasks", JSON.stringify([...JSON.parse(localStorage.getItem("tasks") || "[]"), { textInputField: textInputField.value completed: false }]));
+
+}*/
 
 // create div add class todo-item-container 
     const todoItemContainer = document.createElement('div');
@@ -137,6 +161,11 @@ const todosContainer = document.querySelector('.todos-container');
     todoText.innerText = name;
     todoItemContainer.appendChild(todoText);
 
+     // add click to todoText 
+    todoText.addEventListener('click', () => {
+        todoText.classList.add('line-through');
+    })
+
     // create button add id= edit=button
     const editButton = document.createElement('button');
     editButton.id = 'edit-button';
@@ -150,6 +179,7 @@ const todosContainer = document.querySelector('.todos-container');
         textInputField.value = todoText.innerText;
         const parent = editButton.parentElement;
         parent.parentElement.removeChild(parent);
+
     });
 
      // create buton and add id = deleteButton
@@ -189,8 +219,8 @@ addButton.addEventListener('click', () => {
     })
 
     //add local storage
-    localStorage.setItem('data',todoText.innerText);
-    //let data = todoText.innerText;
+    //localStorage.setItem('data',todoText.innerText);
+    let data = todoText.innerText;
     let name = localStorage.getItem('data');
     console.log(name);
 
